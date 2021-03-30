@@ -12,3 +12,5 @@ RUN apt update &&\
 RUN docker-php-ext-install zip gd pcntl pdo_pgsql pgsql intl &&\
     pecl install -o -f redis &&\
     docker-php-ext-enable redis
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
